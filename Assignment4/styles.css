@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ===== COLORS ===== */
+
+:root {
+    --page: #0b1020;
+    --panel: #121a2d;
+    --line: #293650;
+    --accent: #69e6b1;
+    --muted: #aab6cb;
+    --text: #eef3ff;
+    --input: #0b1324;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            #182746 0,
+            var(--page) 42%
+        );
+
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ===== TOP NAVIGATION ===== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+
+    background: rgba(8, 13, 26, 0.92);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(14px);
+}
+
+.navbar-brand {
+    color: var(--text);
+    letter-spacing: 0.08em;
+    font-size: 1rem;
+}
+
+.navbar-brand:hover {
+    color: #fff;
+}
+
+.brand-accent {
+    color: var(--accent);
+}
+
+.badge-soft {
+    padding: 0.5rem 0.75rem;
+    background: #203b3a;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* ===== PAGE HEADER ===== */
+
+header.container {
+    padding-top: 4.1rem !important;
+    padding-bottom: 2.7rem !important;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+    color: var(--text);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    line-height: 1.1;
+}
+
+header h1::after {
+    display: block;
+    width: 70px;
+    height: 4px;
+    margin: 1.2rem auto 0;
+
+    content: '';
+    border-radius: 99px;
+    background: var(--accent);
+}
+
+header p {
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+/* Small heading above the page title.
+   Applies if your header has class="hero". */
+
+.hero::before {
+    display: block;
+    margin-bottom: 1rem;
+
+    content: 'FRONT-END DEVELOPMENT · HTML + BOOTSTRAP';
+
+    color: var(--accent);
+    text-align: center;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+/* ===== TASK NAVIGATION ===== */
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+header nav .btn {
+    margin: 0.15rem !important;
+    padding: 0.55rem 1rem;
+
+    border: 1px solid #52617d;
+    border-radius: 999px;
+
+    color: #eaf0ff;
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    transition:
+        color 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+header nav .btn:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--accent);
+    background: rgba(105, 230, 177, 0.10);
+    color: var(--accent);
+}
+
+/* ===== MAIN CONTENT ===== */
+
+main.container {
+    max-width: 960px;
+    padding-bottom: 3.5rem !important;
+}
+
+/* ===== TASK CARDS ===== */
+
+.section-block {
+    position: relative;
+    overflow: hidden;
+
+    padding: clamp(1.25rem, 3vw, 2rem);
+    margin-bottom: 1.5rem !important;
+
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+
+    background: rgba(18, 26, 45, 0.96);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+
+    scroll-margin-top: 90px;
+
+    transition:
+        border-color 200ms ease,
+        transform 200ms ease,
+        box-shadow 200ms ease;
+}
+
+/* Mint-green highlight */
+
+.section-block::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 2px;
+
+    content: '';
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(105, 230, 177, 0.7),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+/* Card hover */
+
+.section-block:hover {
+    transform: translateY(-2px);
+
+    border-color: #3b5960;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.24);
+}
+
+/* Decorative labels that don't change task names */
+
+#task0::before,
+#task1::before,
+#task2::before,
+#task3::before,
+#task4::before {
+    display: block;
+    margin-bottom: 0.55rem;
+
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+#task0::before {
+    content: 'PART 1 · TASK 0';
+}
+
+#task1::before {
+    content: 'PART 1 · TASK 1';
+}
+
+#task2::before {
+    content: 'PART 2 · TASK 2';
+}
+
+#task3::before {
+    content: 'PART 2 · TASK 3';
+}
+
+#task4::before {
+    content: 'PART 3 · TASK 4';
+}
+
+/* Original task headings stay unchanged */
+
+.section-block h2 {
+    margin-bottom: 0.75rem;
+
+    color: var(--text);
+    font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.35;
+}
+
+.section-block > p {
+    margin-bottom: 1.6rem;
+
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+/* ===== FORM LABELS ===== */
+
+.form-label,
+.form-check-label,
+legend {
+    color: #eaf0ff;
+    font-weight: 600;
+}
+
+.form-label,
+legend {
+    font-size: 0.9rem;
+}
+
+/* ===== INPUT FIELDS ===== */
+
+.form-control,
+.form-select {
+    min-height: 46px;
+    padding: 0.72rem 0.85rem;
+
+    border: 1px solid #35435e;
+    border-radius: 0.7rem;
+
+    background-color: var(--input);
+    color: #f5f7ff;
+
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        background-color 180ms ease;
+}
+
+textarea.form-control {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.form-control::placeholder {
+    color: #7f8ba3;
+    opacity: 1;
+}
+
+.form-control:hover,
+.form-select:hover {
+    border-color: #536580;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--accent);
+    background-color: var(--input);
+    color: #fff;
+
+    box-shadow: 0 0 0 0.22rem rgba(105, 230, 177, 0.15);
+}
+
+.form-select option {
+    background: var(--input);
+    color: #f5f7ff;
+}
+
+.form-text {
+    margin-top: 0.45rem;
+    color: #9eabc2;
+    font-size: 0.8rem;
+}
+
+/* ===== CHECKBOXES, RADIO BUTTONS AND FIELDSETS ===== */
+
+fieldset {
+    min-width: 0;
+    padding: 1rem 1.1rem 0.7rem;
+
+    border: 1px solid var(--line);
+    border-radius: 0.9rem;
+}
+
+fieldset legend {
+    float: none;
+    width: auto;
+    padding: 0 0.35rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-check-label {
+    cursor: pointer;
+}
+
+.form-check-input {
+    background-color: var(--input);
+    border-color: #52617d;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #29b981;
+    border-color: #29b981;
+}
+
+.form-check-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 0.2rem rgba(105, 230, 177, 0.15);
+}
+
+/* ===== BUTTONS ===== */
+
+.btn {
+    min-height: 42px;
+    padding: 0.65rem 1.05rem;
+
+    border-radius: 0.7rem;
+    font-weight: 800;
+
+    transition:
+        transform 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Submit buttons */
+
+.btn-primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #08131a;
+    font-weight: 800;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    border-color: #8cf2c8;
+    background: #8cf2c8;
+    color: #08131a;
+
+    box-shadow: 0 8px 22px rgba(105, 230, 177, 0.15);
+}
+
+/* Navigation and reset buttons */
+
+.btn-outline-light {
+    border-color: #52617d;
+    color: #eaf0ff;
+}
+
+.btn-outline-light:hover {
+    border-color: var(--accent);
+    background: rgba(105, 230, 177, 0.10);
+    color: var(--accent);
+}
+
+.btn-secondary {
+    border-color: #3b4964;
+    background: #293650;
+    color: var(--text);
+}
+
+.btn-secondary:hover {
+    border-color: #52617d;
+    background: #354565;
+    color: #fff;
+}
+
+/* ===== VALIDATION FEEDBACK ===== */
+
+.valid-feedback,
+.invalid-feedback {
+    margin-top: 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.valid-feedback,
+.status.success {
+    color: var(--accent);
+}
+
+.invalid-feedback,
+.status.error {
+    color: #ff8989;
+}
+
+/* Preserve Bootstrap validation behavior */
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+    border-color: #69e6b1;
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+    border-color: #ff8989;
+}
+
+.status {
+    margin-top: 0.9rem;
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+/* ===== FOOTER ===== */
+
+footer.container {
+    max-width: 960px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+
+@media (max-width: 576px) {
+    header.container {
+        padding-top: 2.8rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .hero::before {
+        font-size: 0.64rem;
+        letter-spacing: 0.11em;
+    }
+
+    header h1 {
+        letter-spacing: -0.045em;
+    }
+
+    header nav {
+        gap: 0.25rem;
+    }
+
+    header nav .btn {
+        padding: 0.5rem 0.8rem;
+    }
+
+    .section-block {
+        padding: 1.2rem;
+        border-radius: 1rem;
+    }
+
+    fieldset {
+        padding: 0.8rem;
+    }
+
+    .form-check-inline {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Accessibility: reduce animations when requested */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
