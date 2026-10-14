@@ -14,23 +14,23 @@ Tasks
 
 Task 0: Simple Contact Form
 Creates a basic contact form with name, email, and message fields, along with a submit button.
-![Task0](screenshots/task0.png)
+![Task0](Assignment4/screenshots/task0.png)
 
 Task 1: HTML5 Validation
 Demonstrates built-in browser validation using HTML attributes such as required, minlength, maxlength, and type="email".
-![Task1](screenshots/task1.png)
+![Task1](Assignment4/screenshots/task1.png)
 
 Task 2: Bootstrap Form Styling
 Uses Bootstrap form controls and a responsive grid to organize the form fields and improve the layout.
-![Taks2](screenshots/task2/png)
+![Taks2](Assignment4/screenshots/task2/png)
 
 Task 3: Bootstrap Validation Styles
 Demonstrates Bootstrap's valid and invalid input styles, including feedback messages for email fields.
-![Task3](screenshots/task3.png)
+![Task3](Assignment4/screenshots/task3.png)
 
 Task 4: Registration Form
 Contains a registration form with first name, last name, email, password, password confirmation, gender selection, hobbies, country selection, and terms acceptance.
-![Task4](screenshots/task4.png)
+![Task4](Assignment4/screenshots/task4.png)
 
 Technologies Used
 
